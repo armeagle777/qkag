@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "person_id_types",
+  "info": {
+    "singularName": "person-id-type",
+    "pluralName": "person-id-types",
+    "displayName": "person_id_type"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "code": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

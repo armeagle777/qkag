@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "act_types",
+  "info": {
+    "singularName": "act-type",
+    "pluralName": "act-types",
+    "displayName": "act_type"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "code": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

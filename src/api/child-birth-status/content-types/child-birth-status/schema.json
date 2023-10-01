@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "child_birth_statuses",
+  "info": {
+    "singularName": "child-birth-status",
+    "pluralName": "child-birth-statuses",
+    "displayName": "child_birth_status"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "code": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

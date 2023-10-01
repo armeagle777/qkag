@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "father_bases",
+  "info": {
+    "singularName": "father-base",
+    "pluralName": "father-bases",
+    "displayName": "father_base"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "code": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "death_reason_statuses",
+  "info": {
+    "singularName": "death-reason-status",
+    "pluralName": "death-reason-statuses",
+    "displayName": "death_reason_status"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

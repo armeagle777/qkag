@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "marital_statuses",
+  "info": {
+    "singularName": "marital-status",
+    "pluralName": "marital-statuses",
+    "displayName": "marital_status"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "code": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

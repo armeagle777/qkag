@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "death_approvers",
+  "info": {
+    "singularName": "death-approver",
+    "pluralName": "death-approvers",
+    "displayName": "death_approver"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
