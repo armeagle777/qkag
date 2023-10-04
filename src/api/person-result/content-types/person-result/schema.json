@@ -1,0 +1,105 @@
+{
+  "kind": "collectionType",
+  "collectionName": "person_results",
+  "info": {
+    "singularName": "person-result",
+    "pluralName": "person-results",
+    "displayName": "person_result"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "psn": {
+      "type": "string",
+      "maxLength": 10,
+      "minLength": 10
+    },
+    "id_type": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::person-id-type.person-id-type",
+      "inversedBy": "person_results"
+    },
+    "id_number": {
+      "type": "string"
+    },
+    "id_issue_date": {
+      "type": "date"
+    },
+    "id_expirey_date": {
+      "type": "date"
+    },
+    "id_department": {
+      "type": "string"
+    },
+    "citizenship": {
+      "type": "string"
+    },
+    "second_citizenship": {
+      "type": "string"
+    },
+    "gender": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::gender.gender",
+      "inversedBy": "person_results"
+    },
+    "new_last_name": {
+      "type": "string"
+    },
+    "last_name_after_marriage": {
+      "type": "string"
+    },
+    "visa_number": {
+      "type": "string"
+    },
+    "visa_date": {
+      "type": "date"
+    },
+    "visa_department": {
+      "type": "string"
+    },
+    "education_level": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::education-level.education-level",
+      "inversedBy": "person_results"
+    },
+    "employment_status": {
+      "type": "string"
+    },
+    "marital_status": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::marital-status.marital-status",
+      "inversedBy": "person_results"
+    },
+    "marriage_number": {
+      "type": "string"
+    },
+    "paternity_base": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::father-base.father-base",
+      "inversedBy": "person_results"
+    },
+    "divorce_reason": {
+      "type": "text"
+    },
+    "change_name_reason": {
+      "type": "string"
+    },
+    "is_parent": {
+      "type": "boolean",
+      "default": false
+    },
+    "act_result": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::act-result.act-result",
+      "mappedBy": "spouse"
+    }
+  }
+}

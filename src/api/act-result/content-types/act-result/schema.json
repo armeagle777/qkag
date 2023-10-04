@@ -1,0 +1,117 @@
+{
+  "kind": "collectionType",
+  "collectionName": "act_results",
+  "info": {
+    "singularName": "act-result",
+    "pluralName": "act-results",
+    "displayName": "act_result"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "full_ref_num": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "ref_num": {
+      "type": "integer"
+    },
+    "registered": {
+      "type": "datetime"
+    },
+    "office_name": {
+      "type": "string"
+    },
+    "cert_num": {
+      "type": "string"
+    },
+    "cert_date": {
+      "type": "date"
+    },
+    "cert_num2": {
+      "type": "string"
+    },
+    "cert_date2": {
+      "type": "date"
+    },
+    "tracking_id": {
+      "type": "string"
+    },
+    "presenter": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::person-result.person-result",
+      "inversedBy": "act_result"
+    },
+    "person": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::person-result.person-result",
+      "inversedBy": "act_result"
+    },
+    "person_2": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::person-result.person-result",
+      "inversedBy": "act_result"
+    },
+    "parents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::person-datas.person-datas",
+      "mappedBy": "act_result"
+    },
+    "brothers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::person-datas.person-datas",
+      "mappedBy": "act_result"
+    },
+    "children": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::person-datas.person-datas",
+      "mappedBy": "act_result"
+    },
+    "spouse": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::person-result.person-result",
+      "inversedBy": "act_result"
+    },
+    "teen_child_count": {
+      "type": "string"
+    },
+    "divorce_base": {
+      "type": "string"
+    },
+    "both_spouses_application": {
+      "type": "string"
+    },
+    "police_department": {
+      "type": "string"
+    },
+    "police_manager": {
+      "type": "string"
+    },
+    "police_decision_number": {
+      "type": "string"
+    },
+    "police_decision_date": {
+      "type": "date"
+    },
+    "sentence": {
+      "type": "text"
+    },
+    "blame": {
+      "type": "string"
+    },
+    "opinion": {
+      "type": "string"
+    }
+  }
+}

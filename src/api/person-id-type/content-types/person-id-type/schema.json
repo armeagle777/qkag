@@ -18,6 +18,18 @@
     "name": {
       "type": "string",
       "required": true
+    },
+    "person_data": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::person-datas.person-datas",
+      "mappedBy": "ptype"
+    },
+    "person_results": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::person-result.person-result",
+      "mappedBy": "id_type"
     }
   }
 }

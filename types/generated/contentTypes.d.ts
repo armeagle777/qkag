@@ -916,6 +916,46 @@ export interface ApiMaritalStatusMaritalStatus extends Schema.CollectionType {
   };
 }
 
+export interface ApiParentsResultParentsResult extends Schema.CollectionType {
+  collectionName: 'parents_results';
+  info: {
+    singularName: 'parents-result';
+    pluralName: 'parents-results';
+    displayName: 'parents_result';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    f_nfam: Attribute.String;
+    f_n: Attribute.String;
+    f_n2: Attribute.String;
+    f_npat: Attribute.String;
+    f_nat: Attribute.String;
+    f_edu: Attribute.String;
+    f_emp: Attribute.String;
+    f_bctry: Attribute.String;
+    f_breg: Attribute.String;
+    f_bcom: Attribute.String;
+    f_bres: Attribute.String;
+    f_docs: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::parents-result.parents-result',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::parents-result.parents-result',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPersonIdTypePersonIdType extends Schema.CollectionType {
   collectionName: 'person_id_types';
   info: {
@@ -970,6 +1010,7 @@ declare module '@strapi/types' {
       'api::father-base.father-base': ApiFatherBaseFatherBase;
       'api::gender.gender': ApiGenderGender;
       'api::marital-status.marital-status': ApiMaritalStatusMaritalStatus;
+      'api::parents-result.parents-result': ApiParentsResultParentsResult;
       'api::person-id-type.person-id-type': ApiPersonIdTypePersonIdType;
     }
   }

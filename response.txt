@@ -1,0 +1,875 @@
+<req_info> = {
+    id: TEXT : Հարցման համար
+    tracking_id TEXT : Նույնականացման համար
+}
+
+
+
+
+
+
+<act_result> = {
+    full_ref_num: TEXT : Ակտի համար(ամբողջական)
+    type: TEXT : Ակտի տեսակ
+    ref_num: NUMERIC : Ակտի համար
+    registered: DATETIME : Գրանցման ամսաթիվ
+    office_name: TEXT : Գրանցող բաժանմունք
+    cert_num: TEXT : Վկայականի համար
+    cert_date: DATE : Վկայականի ամսաթիվ
+    [cert_num2: TEXT : Երկրորդ վկայականի համար]
+    [cert_date2: DATE : Երկրորդ վկայականի ամսաթիվ]
+    tracking_id: TEXT : Նույնականացման համար
+    presenter: <person_result> : Հայտը դիմողի տվյալներ
+    person: <person_result> : Հոր/ամուսնու/մահացողի տվյալներ
+    person2: <person_result> : Կնոջ/մոր տվյալներ
+    child: <child_result> : Երեխայի տվյալներ //*
+    extra: <extra_result> : Կից նյութեր //*
+    parents: [ * <person_data> ] : Ծնողներ 
+    brothers: [ * <person_data> ] : Քույրեր և եղբայրներ 
+    children: [ * <person_data> ] : Երեխաներ 
+    spouse: <person_result> : Ամուսնու տվյալներ 
+    other: <military_result> : Այլ նյութեր //*
+    decs: <decs_result>  //*
+    info: <info_result> = { info_chsttm: TEXT : Փոփոխված ակտի տվյալներ }: Ազատ նշումներ //*
+    alladdrs: [ * <address_result> ] : Բնակության վայրերի լրիվ ցանկ //*
+    attachments: [ * <attachments_result> ] : Կից նյութեր //*
+    death : <death_result> : Մահվան մասին տեղեկություններ //*
+    witness : { 1: <base_info_result>, 2 <base_info_result>} : Վկաներ //*
+
+        # divorce
+    marriage: <statement_result> : Ամուսնության մասին տեղեկություններ //*
+    teen_child_count: TEXT : Համատեղ երեխաների թիվը
+    divorce_base: TEXT : Ամուսնալուծության գրանցման հիմք
+    both_spouses_application: TEXT : Ամուսինների համատեղ դիմում
+    court: <court_result> : Դատարան //*
+    trustee: ( <base_info_result >, <address_result> ) Խնամակալի     տվյալներ //*
+
+        # Հարցումների պատասխաններ
+    police_department: TEXT : Ոստիկանության բաժին
+    police_manager: TEXT : Ոստիկանության բաժնի պետ
+    police_decision_number: TEXT : Եզրակացության համարը
+    police_decision_date: DATE : Եզրակացության ամսաթիվ
+    sentence: TEXT : Եզրակացություն
+    blame: TEXT : Քրեական պատասխանատվություն
+    opinion: TEXT : ՔԿԱԳ մարմնի կարծիքը
+
+    # Բժշկական տվյալներ
+    <medical_result> //*
+}
+
+
+
+<military_result> = { 
+    office: TEXT : Զին. կոմիսարիատներ 
+    status: TEXT : Կարգավիճակ 
+    address: TEXT : Ծառայության վայրը 
+}
+
+
+
+
+
+
+
+<extra_result> = { 
+    act: <extra_act> = { 
+        certificate_number: TEXT : Վկայականի համար 
+        certificate_date: DATE : Վկայականի ամսաթիվ 
+        second_certificate_number: TEXT : Երկրորդ վկայականի համար 
+        second_certificate_date2: DATE : Երկրորդ վկայականի ամսաթիվ 
+        registration_date: DATETIME : Ակտի ամսաթիվ 
+        registration_number: NUMERIC : Ակտի հերթական համար } 
+        notes: TEXT : Այլ տեղեկություններ app_date: DATE : Դիմումի ամսաթիվ 
+        event_date: DATE : Իրադարձության ամսաթիվ 
+    }
+
+
+    <person_data> = {
+        psn: TEXT : ՀԾՀ 
+        ptype <person_id_type> : Անձը հաստատող փ/թ տեսակ 
+        p: TEXT : Անձը հաստատող փ/թ N 
+        pctry: TEXT : Քաղաքացիություն 
+        pdept: TEXT : Ում կողմից է տրված անձը հաստատող փ/թ 
+        pdate: DATE : Անձնագիրը տրված է 
+        pexp: DATE : Անձնագիրը վավեր է մինչև
+        last_name: TEXT : Ազգանուն first_name: TEXT : Անուն
+        npat: TEXT : Հայրանուն
+        gen: TEXT : Սեռ
+        bdate: DATE : Ծննդյան ամսաթիվ
+        nat: TEXT : Ազգություն
+        bctry: TEXT : Ծննդավայր
+        breg: TEXT : Ծննդյան մարզ
+        bcom: TEXT : Ծննդյան համայնք
+        ctry: TEXT : Երկիր
+        reg: TEXT : Մարզ
+        com: TEXT : Համայնք
+        res: TEXT : Բնակավայր
+        street: TEXT : Փողոց
+        htype: TEXT : Տան տեսակ
+        house: TEXT : Շենք/տուն/տնակ
+        apt: TEXT : Բնակարան
+        since: DATE : Բնակվում է սկսված
+        dept: 003 
+    }
+
+
+    <medical_result> = {
+        institution_name: TEXT : Հաստատության անվանում
+        document_name: TEXT : Փաստաթղթի անվանում
+        document_number: TEXT : Փաստաթղթի համար
+        document_date: DATE : Փաստաթղթի տարեթիվ
+    }
+
+
+    <person_result> = {
+        psn: TEXT : ՀԾՀ 
+        id_type: <person_id_type> : Անձը հաստատող փ/թ տեսակ 
+        id_number: TEXT : Անձը հաստատող փ/թ N 
+        id_issue_date: DATE : Անձնագրի տրման ամսաթիվ 
+        id_expirey_date: DATE : Անձնագիրը վավեր է մինչև 
+        id_department: TEXT : Ում կողմից է տրված անձը հաստատող փ/թ N
+        citizenship: TEXT: Քաղաքացիություն
+        second_citizenship: TEXT: Երկրորդ քաղաքացիություն
+        gender: <gender> : Սեռ
+        new_last_name: TEXT : Նոր ազգանուն
+        last_name_after_marriage TEXT : Ազգանունը ամուսնությունից առաջ 
+        base_info: <base_info_result> : Հիմքի տվյալներ //*
+        resident: <address_result> : Գրանցման հասցե //*
+        birth: <address_result> : Ծննդյան հասցե //*
+        current: <address_result> : Բնակության հասցե //*
+        visa_number: TEXT : Վիզայի համար
+        visa_date: DATE : Երբ է տրված
+        visa_department: TEXT : Ում կողմից
+        education_level: <education_level> : Կրթություն
+        employment_status: TEXT : Աշխատանք, զբաղմունք
+        marital_status: <marital_status> : Ամուսնական կարգավիճակ
+        marriage_number: TEXT : Որերորդ ամուսնությունն է
+        paternity_base_obj: <paternity_base_obj_result> : Հայրության հիմքի     մանրամասներ //*
+        paternity_base : <father_base> : Հայրության հիմք
+        divorce_reason: TEXT : Ամուսնալուծության պատճառը
+        change_name_reason: TEXT : Ազգանունը փոխելու պատճառ
+        is_parent: BOOLEAN : Ծնող է թե ոչ
+        base_info: <base_info_result> : Հիմք //*
+        after_paternity: <base_info_result> : Երեխայի տվյալները հայրությունը ճանաչելուց հետո //*
+        statement: <statement_result> //*
+        attached_act: <attached_act_result> //*
+        paternity_base_obj: <paternity_base_result> //* 
+        after_change_name: <base_info_result> //*
+        after_adoption: <after_adoption_result> //*
+        ext: <ext_parents_result> [as: TEXT : Դիմել է որպես] //*
+    }
+
+
+    <attached_act_result> = {
+        registration_date: DATETIME : Գրանցման ամսաթիվ
+        registration_number: NUMERIC : Գրանցման համար
+        registration_office: TEXT : Գրանցող բաժանմունք 
+        certificate_number: TEXT : Վկայականի համար
+    }
+
+
+    <attachments_result> = {
+        attachement_name: TEXT : Փաստաթղթի անվանում
+        attachment_date: DATE : Փաստաթղթի ամսաթիվ
+        attachment_number: TEXT : Փաստաթղթի համար
+        is_approve: BOOLEAN : Համարվում է նաև հավաստող
+    }
+
+
+    <child_result> = {
+        <person_result>
+        count_children: TEXT : Քանի երեխա է ծնվել
+        child_number: TEXT : Որերորդ երեխան է
+        birth_status: <child_birth_status> : Ծննդի կարգավիճակ
+    }
+
+
+    <base_info_result> = {
+        name: TEXT : Անուն
+        last_name: TEXT : Ազգանուն
+        second_name: TEXT : Երկրորդ անուն
+        fathers_name: TEXT : Հայրանուն
+        birth_date: DATE : Ծննդյան ամսաթիվ
+        nationality: TEXT : Ազգություն
+    }
+
+
+    <address_result> = {
+        country: TEXT : Երկիր
+        region: TEXT : Մարզ
+        community: TEXT : Համայնք
+        residence: TEXT : Բնակավայր
+        street: TEXT : Փողոց
+        house_type: TEXT : Տան տեսակ
+        house: TEXT : Շենք/տուն/տնակ
+        apartment: TEXT : Բնակարան
+        start_date: DATE : Բնակվել է սկսված
+        end_date: DATE : Բնակվել է մինչև 
+        department: TEXT : Գրանցման բաժանմունք
+    }
+
+
+    <statement_result> = {
+        registration_date: DATETIME : Գրանցման ամսաթիվ
+        registration_number: NUMERIC : Գրանցման համար
+        registration_office: TEXT : Գրանցող բաժանմունք
+        registration_type: TEXT : Գրանցման տեսակ
+        certificate_number: TEXT : Վկայականի համար 
+        certificate_date: DATE : Վկայականի ամսաթիվ 
+        second_certificate_number: TEXT : Երկրորդ վկայականի համար 
+        second_certificate_date: DATE : Երկրորդ վկայականի ամսաթիվ
+    }
+
+
+    <paternity_base_result> = {
+        declaration: TEXT : Մոր հայտարարություն
+        application_date: DATE : Դիմումի ամսաթիվ
+        court: TEXT : Դատարան
+        decision_number: TEXT : Վճռի համար
+        decision_date: DATE : Վճռի ամսաթիվ
+    }
+
+
+    <after_adoption_result> = { 
+        [ <statement_result>, <base_info_result> ]
+        birth: <address_result> : Ծննդյան հասցե
+    }
+
+
+    <ext_parents_result> = {
+        mother : <base_info_result> father: <base_info_result>
+    }
+
+
+    <court_result> = {
+        country: TEXT : Երկիր
+        region: TEXT : Մարզ
+        community: TEXT : Համայնք
+        name: TEXT : Դատարան
+        decision_number: TEXT : Որոշման համար
+        decision_date: DATE : Որոշման ամսաթիվ
+        imprisonment_years: TEXT : Տարիների քանակը
+        imprisonment_place: TEXT : Պատիժը կրելու վայրը
+        decision_concerns: TEXT : Ում է վերաբերում դատավճիռը
+        notification_date: DATE : Ծանուցումն ուղարկվել է
+        answer_date: DATE : Պատասխանը սպասվում է
+    }
+
+
+    <death_result> = {
+        place: TEXT : Մահվան վայրը
+        date: DATE : Մահվան ամսաթիվ
+        reason: TEXT : Մահվան պատճառը
+        age: TEXT : Տարիքը
+        unidentified: TEXT : Նույնականացում
+        address : <address_result>
+    }
+
+
+    <statistic_data> = {
+        marriage: [ * <marriage_stat_result> ] : Ամուսնություններ
+        birth: [ * <birth_stat_result> ] : Ծնունդներ
+        death: [ * <death_stat_result> ] : Մահեր
+        divorce: [ * <divorce_stat_result> ] : Ամուսնալուծություններ
+    }
+
+
+    <marriage_stat_result> = {
+        <stat_result>
+        children_count: NUMERIC : Երեխաների քանակ
+    }
+
+
+    <birth_stat_result> = {
+        <stat_result>
+        # Երեխայի տվյալներ
+        child_ctry: TEXT : Հաշվառման հասցե
+        child_ctry_name_am: TEXT : Հաշվառման հասցե(հայերեն)
+        child_reg_name: TEXT : Մարզ
+        child_reg: TEXT : Մարզի պայմանանիշ
+        child_com: TEXT : Համայնքի պայմանանիշ
+        child_com_name: TEXT : Համայնք
+        child_res: TEXT : Բնակավայրի պայմանանիշ
+        child_res_name: TEXT : Բնակավայր
+        child_bctry: TEXT : Ծննդավայր
+        child_bctry_name_am: TEXT : Ծննդավայր(հայերեն)
+        child_breg_name: TEXT : Մարզ
+        child_breg: TEXT : Մարզի պայմանանիշ
+        child_bcom: TEXT : Համայնքի պայմանանիշ
+        child_bcom_name: TEXT : Համայնք
+        child_bres: TEXT : Բնակավայրի պայմանանիշ
+        child_bres_name: TEXT : Բնակավայր
+        child_name: TEXT : Անուն
+        child_name2: TEXT : Երկրորդ անուն
+        child_nfam: TEXT : Ազգանուն
+        child_npat: TEXT : Հայրանուն
+        child_gen: <gender> : Սեռ
+        child_bdate: DATE : Ծննդյան ամսաթիվ
+        child_bstat: <child_birth_status> : Ծննդի կարգավիճակ
+        mard: DATE : Ամուսնության ամսաթիվ 
+        pat_cert: TEXT : Հայրության ճանաչման վկայական
+        mdec: TEXT : Մոր հայտարարություն
+        med_place: TEXT : Ծննդյան Վայրը
+        med_help_person: TEXT : Ծնունդն ընդունել է
+        med_bnumdate: DATE : Նախորդ ծննդաբերության ամսաթիվը
+        (կենդանածին)
+        med_weight: TEXT : Նորածնի քաշը (գրամներով)
+        bchcount: TEXT : Ծնված երեխաների քանակ
+        bchnum: TEXT : Քանի երեխա է ծնվել
+        bnum: TEXT : Որերորդ երեխան է
+        bcnum: TEXT : Որերորդ հղիությունն է
+        bnumdate: DATE : Նախորդ ծննդաբերության ամսաթիվը (կենդանածին)
+    }
+
+
+    <death_stat_result> = {
+        <stat_result>
+        med_first: <death_reason> : Ա պատճառ
+        med_second: <death_reason> : Բ պատճառ
+        med_third: <death_reason> : Գ պատճառ
+        med_fourth: <death_reason> : Դ պատճառ
+        med_drstatus: TEXT : Մահը տեղի է ունեցել(պատճառ)
+        med_bnum: TEXT : Որերորդ երեխան է
+        med_m_age: TEXT : Մոր տարիքը
+        med_mar: <marital_status> : Ամուսնական կարգավիճակ
+        med_emp: TEXT : Աշխատավայր, զբաղմունք
+        med_edu: <education_level> : Կրթություն
+        med_doc: TEXT : Փաստաթղթի տեսակը
+        med_dapprover: <death_approver> : Պատճառը հավաստող
+        # Մահվան վայրի մասին տեղեկություններ
+        med_dctry: TEXT : Մահվան հասցե
+        med_ddate: DATE : Մահվան ամսաթիվ
+        med_dctry_name_am: TEXT : Մահվան հասցե(հայերեն)
+        med_dreg_name: TEXT : Մարզ
+        med_dreg: TEXT : Մարզի պայմանանիշ
+        med_dcom: TEXT : Համայնքի պայմանանիշ
+        med_dcom_name: TEXT : Համայնք
+        med_dres: TEXT : Բնակավայրի պայմանանիշ
+        med_dres_name: TEXT : Բնակավայր
+        med_dplace: TEXT : Մահվան վայրը
+    }
+
+
+    <divorce_stat_result> = {
+        <stat_result>
+        med_ref_date: DATE : Ակտի ամսաթիվ
+        med_teen: TEXT : Համատեղ երեխաների թիվը
+        med_dep_teen: TEXT : Խնամքի տակ գտնվող երեխաների թիվը
+        person_marn: TEXT : Ամուսնությունների քանակ
+        person2_marn: TEXT : Ամուսնությունների քանակ
+    }
+
+
+    <stat_result> = {
+        ref_num: NUMERIC : Ակտի համար
+        registered: DATETIME : Գրանցման ամսաթիվ
+        # Ամուսնու/հոր/մահացածի տվյալներ
+        person_ctry: TEXT : Հաշվառման հասցե
+        person_ctry_name_am: TEXT : Հաշվառման հասցե(հայերեն)
+        person_reg_name: TEXT : Մարզ
+        person_reg: TEXT : Մարզի պայմանանիշ
+        person_com: TEXT : Համայնքի պայմանանիշ
+        person_com_name: TEXT : Համայնք
+        person_res: TEXT : Բնակավայրի պայմանանիշ
+        person_res_name: TEXT : Բնակավայր
+        person_cctry: TEXT : Բնակության հասցե
+        person_cctry_name_am: TEXT : Հաշվառման հասցե(հայերեն)
+        person_creg_name: TEXT : Մարզ
+        person_creg: TEXT : Մարզի պայմանանիշ
+        person_ccom: TEXT : Համայնքի պայմանանիշ
+        person_ccom_name: TEXT : Համայնք
+        person_cres: TEXT : Բնակավայրի պայմանանիշ
+        person_cres_name: TEXT : Բնակավայր
+        person_bdate: DATE : Ծննդյան ամսաթիվ
+        person_gen: <gender> : Սեռ
+        person_pctry: TEXT : Քաղաքացիություն
+        person_pctry_name_am: TEXT : Քաղաքացիություն(հայերեն)
+        person_nat: TEXT : Ազգություն
+        person_emp: TEXT : Աշխատավայր, զբաղմունք
+        person_edu: <education_level> : Կրթություն
+        person_mar: <marital_status> : Ամուսնական կարգավիճակ
+        person_fbase: <father_base> : Հայրության հիմք
+        # [ Կնոջ/մոր տվյալներ ]
+        person2_ctry: TEXT : Հաշվառման հասցե
+        person2_ctry_name_am: TEXT : Հաշվառման հասցե(հայերեն)
+        person2_reg_name: TEXT : Մարզ
+        person2_reg: TEXT : Մարզի պայմանանիշ
+        person2_com: TEXT : Համայնքի պայմանանիշ
+        person2_com_name: TEXT : Համայնք
+        person2_res: TEXT : Բնակավայրի պայմանանիշ
+        person2_res_name: TEXT : Բնակավայր
+        person2_cctry: TEXT : Բնակության հասցե
+        person2_cctry_name_am: TEXT : Հաշվառման հասցե(հայերեն)
+        person2_creg_name: TEXT : Մարզ
+        person2_creg: TEXT : Մարզի պայմանանիշ
+        person2_ccom: TEXT : Համայնքի պայմանանիշ
+        person2_ccom_name: TEXT : Համայնք
+        person2_cres: TEXT : Բնակավայրի պայմանանիշ
+        person2_cres_name: TEXT : Բնակավայր
+        person2_bdate: DATE : Ծննդյան ամսաթիվ
+        person2_gen: <gender> : Սեռ
+        person2_pctry: TEXT : Քաղաքացիություն
+        person2_pctry_name_am: TEXT : Քաղաքացիություն(հայերեն)
+        person2_nat: TEXT : Ազգություն
+        person2_emp: TEXT : Աշխատավայր, զբաղմունք
+        person2_edu: <education_level> : Կրթություն
+        person2_mar: <marital_status> : Ամուսնական կարգավիճակ
+    }
+
+
+    <death_reason> = {
+        id: NUMERIC : ID համար
+        code: TEXT : Պահմանանիշ
+        full_code: TEXT : Պահմանանիշ(ամբողջական)
+        name: {
+        am: TEXT : Նկարագրությունը հայերեն
+        en: TEXT : Նկարագրությունը անգլերեն
+        ru: TEXT : Նկարագրությունը ռուսերեն
+    }
+
+}
+
+
+
+
+
+<doc_status> = {
+    status: TEXT : Փաստաթղթի կարգավիճակ
+    user_name: NUMERIC : Օգտվողի անուն 
+    is_editable: BOOLEAN : Վերամշակելի է թե ոչ
+}
+
+
+<act_result> = {
+    full_ref_num: TEXT : Ակտի համար(ամբողջական)
+    type: TEXT : Ակտի տեսակ
+    ref_num: NUMERIC : Ակտի համար
+    registered: DATETIME : Գրանցման ամսաթիվ
+    office_name: TEXT : Գրանցող բաժանմունք
+    cert_num: TEXT : Վկայականի համար
+    cert_date: DATE : Վկայականի ամսաթիվ
+    [cert_num2: TEXT : Երկրորդ վկայականի համար]
+    [cert_date2: DATE : Երկրորդ վկայականի ամսաթիվ]
+    tracking_id: TEXT : Նույնականացման համար
+    presenter: <person_result> : Հայտը դիմողի տվյալներ
+    person: <person_result> : Հոր/ամուսնու/մահացողի տվյալներ
+    person2: <person_result> : Կնոջ/մոր տվյալներ
+    child: <child_result> : Երեխայի տվյալներ
+    extra: <extra_result> : Կից նյութեր 
+    parents: [ * <person_data> ] : Ծնողներ 
+    brothers: [ * <person_data> ] : Քույրեր և եղբայրներ 
+    children: [ * <person_data> ] : Երեխաներ 
+    spouse: <person_result> : Ամուսնու տվյալներ 
+    other: <military_result> : Այլ նյութեր 
+    decs: <decs_result> 
+    info: <info_result> = { info_chsttm: TEXT : Փոփոխված ակտի տվյալներ }: Ազատ նշումներ 
+    alladdrs: [ * <address_result> ] : Բնակության վայրերի լրիվ ցանկ 
+    attachments: [ * <attachments_result> ] : Կից նյութեր
+    death : <death_result> : Մահվան մասին տեղեկություններ 
+    witness : { 1: <base_info_result>, 2 <base_info_result>} : Վկաներ
+
+        # divorce
+    marriage: <statement_result> : Ամուսնության մասին տեղեկություններ
+    teen_child_count: TEXT : Համատեղ երեխաների թիվը
+    divorce_base: TEXT : Ամուսնալուծության գրանցման հիմք
+    both_spouses_application: TEXT : Ամուսինների համատեղ դիմում
+    court: <court_result> : Դատարան 
+    trustee: ( <base_info_result >, <address_result> ) Խնամակալի     տվյալներ
+
+        # Հարցումների պատասխաններ
+    police_department: TEXT : Ոստիկանության բաժին
+    police_manager: TEXT : Ոստիկանության բաժնի պետ
+    police_decision_number: TEXT : Եզրակացության համարը
+    police_decision_date: DATE : Եզրակացության ամսաթիվ
+    sentence: TEXT : Եզրակացություն
+    blame: TEXT : Քրեական պատասխանատվություն
+    opinion: TEXT : ՔԿԱԳ մարմնի կարծիքը
+
+    # Բժշկական տվյալներ
+    <medical_result>
+}
+
+
+
+<military_result> = { 
+    office: TEXT : Զին. կոմիսարիատներ 
+    status: TEXT : Կարգավիճակ address: TEXT : Ծառայության վայրը 
+}
+
+
+
+
+
+
+<extra_result> = { 
+    act: <extra_act> = { 
+        certificate_number: TEXT : Վկայականի համար 
+        certificate_date: DATE : Վկայականի ամսաթիվ 
+        second_certificate_number: TEXT : Երկրորդ վկայականի համար 
+        second_certificate_date2: DATE : Երկրորդ վկայականի ամսաթիվ 
+        registration_date: DATETIME : Ակտի ամսաթիվ 
+        registration_number: NUMERIC : Ակտի հերթական համար } 
+        notes: TEXT : Այլ տեղեկություններ app_date: DATE : Դիմումի ամսաթիվ 
+        event_date: DATE : Իրադարձության ամսաթիվ 
+    }
+
+
+    <person_data> = {
+        psn: TEXT : ՀԾՀ 
+        ptype <person_id_type> : Անձը հաստատող փ/թ տեսակ 
+        p: TEXT : Անձը հաստատող փ/թ N 
+        pctry: TEXT : Քաղաքացիություն 
+        pdept: TEXT : Ում կողմից է տրված անձը հաստատող փ/թ 
+        pdate: DATE : Անձնագիրը տրված է 
+        pexp: DATE : Անձնագիրը վավեր է մինչև
+        last_name: TEXT : Ազգանուն first_name: TEXT : Անուն
+        npat: TEXT : Հայրանուն
+        gen: TEXT : Սեռ
+        bdate: DATE : Ծննդյան ամսաթիվ
+        nat: TEXT : Ազգություն
+        bctry: TEXT : Ծննդավայր
+        breg: TEXT : Ծննդյան մարզ
+        bcom: TEXT : Ծննդյան համայնք
+        ctry: TEXT : Երկիր
+        reg: TEXT : Մարզ
+        com: TEXT : Համայնք
+        res: TEXT : Բնակավայր
+        street: TEXT : Փողոց
+        htype: TEXT : Տան տեսակ
+        house: TEXT : Շենք/տուն/տնակ
+        apt: TEXT : Բնակարան
+        since: DATE : Բնակվում է սկսված
+        dept: 003 
+    }
+
+
+    <medical_result> = {
+        institution_name: TEXT : Հաստատության անվանում
+        document_name: TEXT : Փաստաթղթի անվանում
+        document_number: TEXT : Փաստաթղթի համար
+        document_date: DATE : Փաստաթղթի տարեթիվ
+    }
+
+
+    <person_result> = {
+        psn: TEXT : ՀԾՀ 
+        id_type: <person_id_type> : Անձը հաստատող փ/թ տեսակ 
+        id_number: TEXT : Անձը հաստատող փ/թ N 
+        id_issue_date: DATE : Անձնագրի տրման ամսաթիվ 
+        id_expirey_date: DATE : Անձնագիրը վավեր է մինչև 
+        id_department: TEXT : Ում կողմից է տրված անձը հաստատող փ/թ N
+        citizenship: TEXT: Քաղաքացիություն
+        second_citizenship: TEXT: Երկրորդ քաղաքացիություն
+        gender: <gender> : Սեռ
+        new_last_name: TEXT : Նոր ազգանուն
+        last_name_after_marriage TEXT : Ազգանունը ամուսնությունից առաջ 
+        base_info: <base_info_result> : Հիմքի տվյալներ //*
+        resident: <address_result> : Գրանցման հասցե //*
+        birth: <address_result> : Ծննդյան հասցե //*
+        current: <address_result> : Բնակության հասցե //*
+        visa_number: TEXT : Վիզայի համար
+        visa_date: DATE : Երբ է տրված
+        visa_department: TEXT : Ում կողմից
+        education_level: <education_level> : Կրթություն
+        employment_status: TEXT : Աշխատանք, զբաղմունք
+        marital_status: <marital_status> : Ամուսնական կարգավիճակ
+        marriage_number: TEXT : Որերորդ ամուսնությունն է
+        paternity_base_obj: <paternity_base_obj_result> : Հայրության հիմքի     մանրամասներ //*
+        paternity_base : <father_base> : Հայրության հիմք
+        divorce_reason: TEXT : Ամուսնալուծության պատճառը
+        change_name_reason: TEXT : Ազգանունը փոխելու պատճառ
+        is_parent: BOOLEAN : Ծնող է թե ոչ
+        base_info: <base_info_result> : Հիմք //*
+        after_paternity: <base_info_result> : Երեխայի տվյալները հայրությունը ճանաչելուց հետո //*
+        statement: <statement_result> //*
+        attached_act: <attached_act_result> //*
+        paternity_base_obj: <paternity_base_result> //* 
+        after_change_name: <base_info_result> //*
+        after_adoption: <after_adoption_result> //*
+        ext: <ext_parents_result> [as: TEXT : Դիմել է որպես] //*
+    }
+
+
+    <attached_act_result> = {
+        registration_date: DATETIME : Գրանցման ամսաթիվ
+        registration_number: NUMERIC : Գրանցման համար
+        registration_office: TEXT : Գրանցող բաժանմունք 
+        certificate_number: TEXT : Վկայականի համար
+    }
+
+
+    <attachments_result> = {
+        attachement_name: TEXT : Փաստաթղթի անվանում
+        attachment_date: DATE : Փաստաթղթի ամսաթիվ
+        attachment_number: TEXT : Փաստաթղթի համար
+        is_approve: BOOLEAN : Համարվում է նաև հավաստող
+    }
+
+
+    <child_result> = {
+        <person_result>
+        count_children: TEXT : Քանի երեխա է ծնվել
+        child_number: TEXT : Որերորդ երեխան է
+        birth_status: <child_birth_status> : Ծննդի կարգավիճակ
+    }
+
+
+    <base_info_result> = {
+        name: TEXT : Անուն
+        last_name: TEXT : Ազգանուն
+        second_name: TEXT : Երկրորդ անուն
+        fathers_name: TEXT : Հայրանուն
+        birth_date: DATE : Ծննդյան ամսաթիվ
+        nationality: TEXT : Ազգություն
+    }
+
+
+    <address_result> = {
+        country: TEXT : Երկիր
+        region: TEXT : Մարզ
+        community: TEXT : Համայնք
+        residence: TEXT : Բնակավայր
+        street: TEXT : Փողոց
+        house_type: TEXT : Տան տեսակ
+        house: TEXT : Շենք/տուն/տնակ
+        apartment: TEXT : Բնակարան
+        start_date: DATE : Բնակվել է սկսված
+        end_date: DATE : Բնակվել է մինչև 
+        department: TEXT : Գրանցման բաժանմունք
+    }
+
+
+    <statement_result> = {
+        registration_date: DATETIME : Գրանցման ամսաթիվ
+        registration_number: NUMERIC : Գրանցման համար
+        registration_office: TEXT : Գրանցող բաժանմունք
+        registration_type: TEXT : Գրանցման տեսակ
+        certificate_number: TEXT : Վկայականի համար 
+        certificate_date: DATE : Վկայականի ամսաթիվ 
+        second_certificate_number: TEXT : Երկրորդ վկայականի համար 
+        second_certificate_date: DATE : Երկրորդ վկայականի ամսաթիվ
+    }
+
+
+    <paternity_base_result> = {
+        declaration: TEXT : Մոր հայտարարություն
+        application_date: DATE : Դիմումի ամսաթիվ
+        court: TEXT : Դատարան
+        decision_number: TEXT : Վճռի համար
+        decision_date: DATE : Վճռի ամսաթիվ
+    }
+
+
+    <after_adoption_result> = { 
+        [ <statement_result>, <base_info_result> ]
+        birth: <address_result> : Ծննդյան հասցե
+    }
+
+
+    <ext_parents_result> = {
+        mother : <base_info_result> father: <base_info_result>
+    }
+
+
+    <court_result> = {
+        country: TEXT : Երկիր
+        region: TEXT : Մարզ
+        community: TEXT : Համայնք
+        name: TEXT : Դատարան
+        decision_number: TEXT : Որոշման համար
+        decision_date: DATE : Որոշման ամսաթիվ
+        imprisonment_years: TEXT : Տարիների քանակը
+        imprisonment_place: TEXT : Պատիժը կրելու վայրը
+        decision_concerns: TEXT : Ում է վերաբերում դատավճիռը
+        notification_date: DATE : Ծանուցումն ուղարկվել է
+        answer_date: DATE : Պատասխանը սպասվում է
+    }
+
+
+    <death_result> = {
+        place: TEXT : Մահվան վայրը
+        date: DATE : Մահվան ամսաթիվ
+        reason: TEXT : Մահվան պատճառը
+        age: TEXT : Տարիքը
+        unidentified: TEXT : Նույնականացում
+        address : <address_result>
+    }
+
+
+    <statistic_data> = {
+        marriage: [ * <marriage_stat_result> ] : Ամուսնություններ
+        birth: [ * <birth_stat_result> ] : Ծնունդներ
+        death: [ * <death_stat_result> ] : Մահեր
+        divorce: [ * <divorce_stat_result> ] : Ամուսնալուծություններ
+    }
+
+
+    <marriage_stat_result> = {
+        <stat_result>
+        children_count: NUMERIC : Երեխաների քանակ
+    }
+
+
+    <birth_stat_result> = {
+        <stat_result>
+        # Երեխայի տվյալներ
+        child_ctry: TEXT : Հաշվառման հասցե
+        child_ctry_name_am: TEXT : Հաշվառման հասցե(հայերեն)
+        child_reg_name: TEXT : Մարզ
+        child_reg: TEXT : Մարզի պայմանանիշ
+        child_com: TEXT : Համայնքի պայմանանիշ
+        child_com_name: TEXT : Համայնք
+        child_res: TEXT : Բնակավայրի պայմանանիշ
+        child_res_name: TEXT : Բնակավայր
+        child_bctry: TEXT : Ծննդավայր
+        child_bctry_name_am: TEXT : Ծննդավայր(հայերեն)
+        child_breg_name: TEXT : Մարզ
+        child_breg: TEXT : Մարզի պայմանանիշ
+        child_bcom: TEXT : Համայնքի պայմանանիշ
+        child_bcom_name: TEXT : Համայնք
+        child_bres: TEXT : Բնակավայրի պայմանանիշ
+        child_bres_name: TEXT : Բնակավայր
+        child_name: TEXT : Անուն
+        child_name2: TEXT : Երկրորդ անուն
+        child_nfam: TEXT : Ազգանուն
+        child_npat: TEXT : Հայրանուն
+        child_gen: <gender> : Սեռ
+        child_bdate: DATE : Ծննդյան ամսաթիվ
+        child_bstat: <child_birth_status> : Ծննդի կարգավիճակ
+        mard: DATE : Ամուսնության ամսաթիվ 
+        pat_cert: TEXT : Հայրության ճանաչման վկայական
+        mdec: TEXT : Մոր հայտարարություն
+        med_place: TEXT : Ծննդյան Վայրը
+        med_help_person: TEXT : Ծնունդն ընդունել է
+        med_bnumdate: DATE : Նախորդ ծննդաբերության ամսաթիվը
+        (կենդանածին)
+        med_weight: TEXT : Նորածնի քաշը (գրամներով)
+        bchcount: TEXT : Ծնված երեխաների քանակ
+        bchnum: TEXT : Քանի երեխա է ծնվել
+        bnum: TEXT : Որերորդ երեխան է
+        bcnum: TEXT : Որերորդ հղիությունն է
+        bnumdate: DATE : Նախորդ ծննդաբերության ամսաթիվը (կենդանածին)
+    }
+
+
+    <death_stat_result> = {
+        <stat_result>
+        med_first: <death_reason> : Ա պատճառ
+        med_second: <death_reason> : Բ պատճառ
+        med_third: <death_reason> : Գ պատճառ
+        med_fourth: <death_reason> : Դ պատճառ
+        med_drstatus: TEXT : Մահը տեղի է ունեցել(պատճառ)
+        med_bnum: TEXT : Որերորդ երեխան է
+        med_m_age: TEXT : Մոր տարիքը
+        med_mar: <marital_status> : Ամուսնական կարգավիճակ
+        med_emp: TEXT : Աշխատավայր, զբաղմունք
+        med_edu: <education_level> : Կրթություն
+        med_doc: TEXT : Փաստաթղթի տեսակը
+        med_dapprover: <death_approver> : Պատճառը հավաստող
+        # Մահվան վայրի մասին տեղեկություններ
+        med_dctry: TEXT : Մահվան հասցե
+        med_ddate: DATE : Մահվան ամսաթիվ
+        med_dctry_name_am: TEXT : Մահվան հասցե(հայերեն)
+        med_dreg_name: TEXT : Մարզ
+        med_dreg: TEXT : Մարզի պայմանանիշ
+        med_dcom: TEXT : Համայնքի պայմանանիշ
+        med_dcom_name: TEXT : Համայնք
+        med_dres: TEXT : Բնակավայրի պայմանանիշ
+        med_dres_name: TEXT : Բնակավայր
+        med_dplace: TEXT : Մահվան վայրը
+    }
+
+
+    <divorce_stat_result> = {
+        <stat_result>
+        med_ref_date: DATE : Ակտի ամսաթիվ
+        med_teen: TEXT : Համատեղ երեխաների թիվը
+        med_dep_teen: TEXT : Խնամքի տակ գտնվող երեխաների թիվը
+        person_marn: TEXT : Ամուսնությունների քանակ
+        person2_marn: TEXT : Ամուսնությունների քանակ
+    }
+
+
+    <stat_result> = {
+        ref_num: NUMERIC : Ակտի համար
+        registered: DATETIME : Գրանցման ամսաթիվ
+        # Ամուսնու/հոր/մահացածի տվյալներ
+        person_ctry: TEXT : Հաշվառման հասցե
+        person_ctry_name_am: TEXT : Հաշվառման հասցե(հայերեն)
+        person_reg_name: TEXT : Մարզ
+        person_reg: TEXT : Մարզի պայմանանիշ
+        person_com: TEXT : Համայնքի պայմանանիշ
+        person_com_name: TEXT : Համայնք
+        person_res: TEXT : Բնակավայրի պայմանանիշ
+        person_res_name: TEXT : Բնակավայր
+        person_cctry: TEXT : Բնակության հասցե
+        person_cctry_name_am: TEXT : Հաշվառման հասցե(հայերեն)
+        person_creg_name: TEXT : Մարզ
+        person_creg: TEXT : Մարզի պայմանանիշ
+        person_ccom: TEXT : Համայնքի պայմանանիշ
+        person_ccom_name: TEXT : Համայնք
+        person_cres: TEXT : Բնակավայրի պայմանանիշ
+        person_cres_name: TEXT : Բնակավայր
+        person_bdate: DATE : Ծննդյան ամսաթիվ
+        person_gen: <gender> : Սեռ
+        person_pctry: TEXT : Քաղաքացիություն
+        person_pctry_name_am: TEXT : Քաղաքացիություն(հայերեն)
+        person_nat: TEXT : Ազգություն
+        person_emp: TEXT : Աշխատավայր, զբաղմունք
+        person_edu: <education_level> : Կրթություն
+        person_mar: <marital_status> : Ամուսնական կարգավիճակ
+        person_fbase: <father_base> : Հայրության հիմք
+        # [ Կնոջ/մոր տվյալներ ]
+        person2_ctry: TEXT : Հաշվառման հասցե
+        person2_ctry_name_am: TEXT : Հաշվառման հասցե(հայերեն)
+        person2_reg_name: TEXT : Մարզ
+        person2_reg: TEXT : Մարզի պայմանանիշ
+        person2_com: TEXT : Համայնքի պայմանանիշ
+        person2_com_name: TEXT : Համայնք
+        person2_res: TEXT : Բնակավայրի պայմանանիշ
+        person2_res_name: TEXT : Բնակավայր
+        person2_cctry: TEXT : Բնակության հասցե
+        person2_cctry_name_am: TEXT : Հաշվառման հասցե(հայերեն)
+        person2_creg_name: TEXT : Մարզ
+        person2_creg: TEXT : Մարզի պայմանանիշ
+        person2_ccom: TEXT : Համայնքի պայմանանիշ
+        person2_ccom_name: TEXT : Համայնք
+        person2_cres: TEXT : Բնակավայրի պայմանանիշ
+        person2_cres_name: TEXT : Բնակավայր
+        person2_bdate: DATE : Ծննդյան ամսաթիվ
+        person2_gen: <gender> : Սեռ
+        person2_pctry: TEXT : Քաղաքացիություն
+        person2_pctry_name_am: TEXT : Քաղաքացիություն(հայերեն)
+        person2_nat: TEXT : Ազգություն
+        person2_emp: TEXT : Աշխատավայր, զբաղմունք
+        person2_edu: <education_level> : Կրթություն
+        person2_mar: <marital_status> : Ամուսնական կարգավիճակ
+    }
+
+
+    <death_reason> = {
+        id: NUMERIC : ID համար
+        code: TEXT : Պահմանանիշ
+        full_code: TEXT : Պահմանանիշ(ամբողջական)
+        name: {
+            am: TEXT : Նկարագրությունը հայերեն
+            en: TEXT : Նկարագրությունը անգլերեն
+            ru: TEXT : Նկարագրությունը ռուսերեն
+        }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "medical_results",
+  "info": {
+    "singularName": "medical-result",
+    "pluralName": "medical-results",
+    "displayName": "medical_result"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "institution_name": {
+      "type": "string"
+    },
+    "document_name": {
+      "type": "string"
+    },
+    "document_number": {
+      "type": "string"
+    },
+    "document_date": {
+      "type": "date"
+    }
+  }
+}

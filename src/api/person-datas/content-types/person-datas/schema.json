@@ -1,0 +1,102 @@
+{
+  "kind": "collectionType",
+  "collectionName": "person_data",
+  "info": {
+    "singularName": "person-datas",
+    "pluralName": "person-data",
+    "displayName": "person_data"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "psn": {
+      "type": "string",
+      "maxLength": 10,
+      "minLength": 10
+    },
+    "ptype": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::person-id-type.person-id-type",
+      "inversedBy": "person_data"
+    },
+    "p": {
+      "type": "string"
+    },
+    "pctry": {
+      "type": "string"
+    },
+    "pdept": {
+      "type": "string"
+    },
+    "pdate": {
+      "type": "date"
+    },
+    "pexp": {
+      "type": "date"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "npat": {
+      "type": "string"
+    },
+    "gen": {
+      "type": "string"
+    },
+    "bdate": {
+      "type": "date"
+    },
+    "nat": {
+      "type": "string"
+    },
+    "bctry": {
+      "type": "string"
+    },
+    "breg": {
+      "type": "string"
+    },
+    "bcom": {
+      "type": "string"
+    },
+    "ctry": {
+      "type": "string"
+    },
+    "reg": {
+      "type": "string"
+    },
+    "com": {
+      "type": "string"
+    },
+    "res": {
+      "type": "string"
+    },
+    "street": {
+      "type": "string"
+    },
+    "htype": {
+      "type": "string"
+    },
+    "house": {
+      "type": "string"
+    },
+    "apt": {
+      "type": "string"
+    },
+    "since": {
+      "type": "date"
+    },
+    "dept": {
+      "type": "string",
+      "default": "003"
+    },
+    "act_result": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::act-result.act-result",
+      "inversedBy": "children"
+    }
+  }
+}
