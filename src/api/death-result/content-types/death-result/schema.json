@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "death_results",
+  "info": {
+    "singularName": "death-result",
+    "pluralName": "death-results",
+    "displayName": "Death_result"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "place": {
+      "type": "string"
+    },
+    "date": {
+      "type": "date"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "age": {
+      "type": "string"
+    },
+    "unidentified": {
+      "type": "string"
+    },
+    "address": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::address-result.address-result"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "court_results",
+  "info": {
+    "singularName": "court-result",
+    "pluralName": "court-results",
+    "displayName": "Court_result"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "country": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "community": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "decision_number": {
+      "type": "string"
+    },
+    "decision_date": {
+      "type": "date"
+    },
+    "imprisonment_years": {
+      "type": "string"
+    },
+    "imprisonment_place": {
+      "type": "string"
+    },
+    "decision_concerns": {
+      "type": "string"
+    },
+    "notification_date": {
+      "type": "date"
+    },
+    "answer_date": {
+      "type": "date"
+    }
+  }
+}

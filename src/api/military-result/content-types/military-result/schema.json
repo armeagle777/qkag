@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "military_results",
+  "info": {
+    "singularName": "military-result",
+    "pluralName": "military-results",
+    "displayName": "Military_result"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "office": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    }
+  }
+}

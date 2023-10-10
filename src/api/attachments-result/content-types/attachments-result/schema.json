@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "attachments_results",
+  "info": {
+    "singularName": "attachments-result",
+    "pluralName": "attachments-results",
+    "displayName": "Attachments_result"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "attachement_name": {
+      "type": "string"
+    },
+    "attachment_date": {
+      "type": "date"
+    },
+    "attachment_number": {
+      "type": "string"
+    },
+    "is_approve": {
+      "type": "boolean"
+    },
+    "act_result": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::act-result.act-result",
+      "inversedBy": "attachments"
+    }
+  }
+}

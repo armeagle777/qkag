@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "attached_act_results",
+  "info": {
+    "singularName": "attached-act-result",
+    "pluralName": "attached-act-results",
+    "displayName": "Attached_act_result"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "registration_date": {
+      "type": "datetime"
+    },
+    "registration_number": {
+      "type": "integer"
+    },
+    "registration_office": {
+      "type": "string"
+    },
+    "certificate_number": {
+      "type": "string"
+    }
+  }
+}

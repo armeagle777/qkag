@@ -14,12 +14,6 @@
     "name": {
       "type": "string",
       "required": true
-    },
-    "person_results": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::person-result.person-result",
-      "mappedBy": "gender"
     }
   }
 }

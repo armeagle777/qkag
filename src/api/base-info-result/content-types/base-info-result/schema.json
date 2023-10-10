@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "base_info_results",
+  "info": {
+    "singularName": "base-info-result",
+    "pluralName": "base-info-results",
+    "displayName": "Base_info_result"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "last_name": {
+      "type": "string",
+      "required": true
+    },
+    "second_name": {
+      "type": "string",
+      "required": false
+    },
+    "fathers_name": {
+      "type": "string"
+    },
+    "birth_date": {
+      "type": "date"
+    },
+    "nationality": {
+      "type": "string"
+    }
+  }
+}

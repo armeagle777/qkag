@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "statement_results",
+  "info": {
+    "singularName": "statement-result",
+    "pluralName": "statement-results",
+    "displayName": "Statement_result"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "registration_date": {
+      "type": "datetime"
+    },
+    "registration_number": {
+      "type": "integer"
+    },
+    "registration_office": {
+      "type": "string"
+    },
+    "registration_type": {
+      "type": "string"
+    },
+    "certificate_number": {
+      "type": "string"
+    },
+    "certificate_date": {
+      "type": "date"
+    },
+    "second_certificate_number": {
+      "type": "string"
+    },
+    "second_certificate_date": {
+      "type": "date"
+    }
+  }
+}

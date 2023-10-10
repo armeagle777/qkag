@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "extra_results",
+  "info": {
+    "singularName": "extra-result",
+    "pluralName": "extra-results",
+    "displayName": "Extra_result"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "act": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::extra-act.extra-act"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "app_date": {
+      "type": "date"
+    },
+    "event_date": {
+      "type": "date"
+    }
+  }
+}

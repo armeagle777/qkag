@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "death_reasons",
+  "info": {
+    "singularName": "death-reason",
+    "pluralName": "death-reasons",
+    "displayName": "Death_reason"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "code": {
+      "type": "string"
+    },
+    "full_code": {
+      "type": "string"
+    },
+    "name": {
+      "type": "json"
+    }
+  }
+}

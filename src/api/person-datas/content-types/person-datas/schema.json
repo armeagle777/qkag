@@ -4,7 +4,8 @@
   "info": {
     "singularName": "person-datas",
     "pluralName": "person-data",
-    "displayName": "person_data"
+    "displayName": "person_data",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -97,6 +98,9 @@
       "relation": "manyToOne",
       "target": "api::act-result.act-result",
       "inversedBy": "children"
+    },
+    "first_name": {
+      "type": "string"
     }
   }
 }

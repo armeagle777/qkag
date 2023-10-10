@@ -4,7 +4,8 @@
   "info": {
     "singularName": "person-result",
     "pluralName": "person-results",
-    "displayName": "person_result"
+    "displayName": "person_result",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -40,12 +41,6 @@
     "second_citizenship": {
       "type": "string"
     },
-    "gender": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::gender.gender",
-      "inversedBy": "person_results"
-    },
     "new_last_name": {
       "type": "string"
     },
@@ -61,29 +56,11 @@
     "visa_department": {
       "type": "string"
     },
-    "education_level": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::education-level.education-level",
-      "inversedBy": "person_results"
-    },
     "employment_status": {
       "type": "string"
     },
-    "marital_status": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::marital-status.marital-status",
-      "inversedBy": "person_results"
-    },
     "marriage_number": {
       "type": "string"
-    },
-    "paternity_base": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::father-base.father-base",
-      "inversedBy": "person_results"
     },
     "divorce_reason": {
       "type": "text"
@@ -100,6 +77,67 @@
       "relation": "oneToOne",
       "target": "api::act-result.act-result",
       "mappedBy": "spouse"
+    },
+    "count_children": {
+      "type": "string"
+    },
+    "child_number": {
+      "type": "string"
+    },
+    "birth_status": {
+      "type": "string"
+    },
+    "gender": {
+      "type": "string"
+    },
+    "paternity_base": {
+      "type": "string"
+    },
+    "resident": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::address-result.address-result"
+    },
+    "education_level": {
+      "type": "string"
+    },
+    "marital_status": {
+      "type": "string"
+    },
+    "current": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::address-result.address-result"
+    },
+    "birth": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::address-result.address-result"
+    },
+    "attached_act": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::attached-act-result.attached-act-result"
+    },
+    "statement": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::statement-result.statement-result"
+    },
+    "base_info": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::base-info-result.base-info-result"
+    },
+    "after_change_name": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::base-info-result.base-info-result"
+    },
+    "after_paternity": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::base-info-result.base-info-result"
     }
   }
 }

@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ext_parents_results",
+  "info": {
+    "singularName": "ext-parents-result",
+    "pluralName": "ext-parents-results",
+    "displayName": "Ext_parents_result"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "mother": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::base-info-result.base-info-result"
+    },
+    "father": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::base-info-result.base-info-result"
+    }
+  }
+}

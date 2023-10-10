@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "paternity_base_results",
+  "info": {
+    "singularName": "paternity-base-result",
+    "pluralName": "paternity-base-results",
+    "displayName": "Paternity_base_result"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "declaration": {
+      "type": "string"
+    },
+    "application_date": {
+      "type": "date"
+    },
+    "court": {
+      "type": "string"
+    },
+    "decision_number": {
+      "type": "string"
+    },
+    "decision_date": {
+      "type": "date"
+    }
+  }
+}

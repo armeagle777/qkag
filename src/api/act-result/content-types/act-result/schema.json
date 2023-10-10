@@ -4,7 +4,8 @@
   "info": {
     "singularName": "act-result",
     "pluralName": "act-results",
-    "displayName": "act_result"
+    "displayName": "act_result",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -112,6 +113,53 @@
     },
     "opinion": {
       "type": "string"
+    },
+    "extra": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::extra-result.extra-result"
+    },
+    "other": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::military-result.military-result"
+    },
+    "court": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::court-result.court-result"
+    },
+    "marriage": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::statement-result.statement-result"
+    },
+    "death": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::death-result.death-result"
+    },
+    "attachments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::attachments-result.attachments-result",
+      "mappedBy": "act_result"
+    },
+    "alladdrs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::address-result.address-result",
+      "mappedBy": "act_result"
+    },
+    "child": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::person-result.person-result"
+    },
+    "med": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::medical-result.medical-result"
     }
   }
 }

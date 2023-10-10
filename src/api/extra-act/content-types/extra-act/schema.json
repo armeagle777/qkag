@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "extra_acts",
+  "info": {
+    "singularName": "extra-act",
+    "pluralName": "extra-acts",
+    "displayName": "Extra_act"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "certificate_number": {
+      "type": "string"
+    },
+    "certificate_date": {
+      "type": "date"
+    },
+    "second_certificate_number": {
+      "type": "string"
+    },
+    "second_certificate_date2": {
+      "type": "date"
+    },
+    "registration_date": {
+      "type": "datetime"
+    },
+    "registration_number": {
+      "type": "integer"
+    }
+  }
+}

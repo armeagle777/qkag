@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "address_results",
+  "info": {
+    "singularName": "address-result",
+    "pluralName": "address-results",
+    "displayName": "Address_result"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "country": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "community": {
+      "type": "string"
+    },
+    "residence": {
+      "type": "string"
+    },
+    "street": {
+      "type": "string"
+    },
+    "house_type": {
+      "type": "string"
+    },
+    "house": {
+      "type": "string"
+    },
+    "apartment": {
+      "type": "string"
+    },
+    "start_date": {
+      "type": "date"
+    },
+    "end_date": {
+      "type": "date"
+    },
+    "department": {
+      "type": "string"
+    },
+    "act_result": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::act-result.act-result",
+      "inversedBy": "alladdrs"
+    }
+  }
+}
